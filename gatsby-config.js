@@ -1,8 +1,11 @@
 module.exports = {
   siteMetadata: {
     title: `Hello Gatsby`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    description: `Site description goes here.`,
+    keywords: `keyword 1, keyword 2, keyword 3`,
+    author: `Grizzcode, LLC`,
+    image: `./src/images/gatsby-icon.png`,
+    url: `http://www.gatsbyjs.org`
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -35,10 +38,17 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-transformer-remark'
-    }
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+      resolve: `gatsby-transformer-remark`
+    },
+    {
+      resolve: `gatsby-source-wordpress`,
+      options: {
+        baseUrl: `practice.codingsrc.com`,
+        protocol: `http`,
+        hostingWPCOM: false,
+
+      },
+    },
+    'gatsby-plugin-react-helmet'
   ],
 }

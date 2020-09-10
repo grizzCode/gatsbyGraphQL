@@ -2,6 +2,7 @@ import React from 'react'
 import Post from '../components/post'
 import PrimaryLayout from '../layouts/PrimaryLayout'
 import { graphql } from 'gatsby'
+import { Helmet } from 'react-helmet'
 // import Image from "../components/image"
 // import SEO from "../components/seo"
 
@@ -11,11 +12,13 @@ export default (props) => {
   return (
     <>
       <PrimaryLayout grid="col-xs-6">
-        {props.data.allMarkdownRemark.nodes.map(node => (
+   
+        {props.data.allWordpressPost.nodes.map(node => (
           <Post 
-            title={node.frontmatter.title} 
+            title={node.title} 
             preview={node.excerpt} 
-            img={node.frontmatter.image} />
+            img={node.featured_media.source_url}
+            readMore={node.slug} />
         ))}
       </PrimaryLayout>
     </>
@@ -23,17 +26,16 @@ export default (props) => {
 }
 
 
-export const query = graphql`{
-  allMarkdownRemark {
-    nodes {
-      frontmatter {
-        title
-        date
-        keywords
-        image
-      }
-      excerpt
-      html
-    }
-  }
-}`
+export const query = graphql`
+  {
+    allWordpressPost {
+       nodes {
+         slug
+         title
+         excerpt
+         featured_media {
+           source_url
+         }
+       }
+     }
+   }`
