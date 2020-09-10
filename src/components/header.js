@@ -4,15 +4,27 @@ import { Navbar, Nav } from 'react-bootstrap'
 import { Link } from 'gatsby'
 
 const Header = (props) => (
-  <>
+  <header>
   <Navbar bg="light" expand="lg">
   <Navbar.Brand>Gatsby-Bootstrap</Navbar.Brand>
   <Navbar.Toggle aria-controls="basic-navbar-nav" />
   <Navbar.Collapse id="basic-navbar-nav">
     <Nav className="mr-auto">
-      <Nav.Link as={Link} to="/">Home</Nav.Link>
-      <Nav.Link as={Link} to="/about">About</Nav.Link>
-      <Nav.Link as={Link} to="/contact">Contact</Nav.Link>
+      <Nav.Link as={Link} to="/">
+        <b className="text-dark">
+         Home
+        </b> 
+      </Nav.Link>
+      <Nav.Link as={Link} to="/about">
+        <b className="text-dark">
+          About
+        </b> 
+      </Nav.Link>
+      <Nav.Link as={Link} to="/contact">
+        <b className="text-dark">
+          Contact
+        </b> 
+      </Nav.Link>
       {/* <Nav.Link href="#link">Link</Nav.Link>
       <NavDropdown title="Dropdown" id="basic-nav-dropdown">
         <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
@@ -28,7 +40,7 @@ const Header = (props) => (
     </Form> */}
   </Navbar.Collapse>
 </Navbar>
-</>
+</header>
 )
 
 export default Header

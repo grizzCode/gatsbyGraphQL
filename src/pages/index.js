@@ -17,7 +17,9 @@ export default (props) => {
             title={node.title} 
             preview={node.excerpt} 
             img={node.featured_media.source_url}
-            readMore={node.slug} />
+            readMore={node.slug} 
+            alt={node.featured_media.slug}
+            />
         ))}
       </PrimaryLayout>
     </>
@@ -34,6 +36,7 @@ export const query = graphql`
          excerpt
          featured_media {
            source_url
+           slug
          }
        }
      }
